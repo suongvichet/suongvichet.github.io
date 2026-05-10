@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suong Vichet | Engineering Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff8f0;
+      color: #2b2b2b;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navigation Bar */
+    header {
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid #ffe1c2;
+      box-shadow: 0 4px 15px rgba(255, 122, 24, 0.08);
+    }
+
+    .navbar {
+      max-width: 1150px;
+      margin: auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #ff7a18;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      color: #333;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ff7a18;
+    }
+
+    /* Hero Section */
+    .hero {
+      max-width: 1150px;
+      margin: auto;
+      padding: 90px 24px 70px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 3.2rem;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: #242424;
+    }
+
+    .hero-text h1 span {
+      color: #ff7a18;
+    }
+
+    .hero-text p {
+      font-size: 1.08rem;
+      max-width: 650px;
+      color: #555;
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #ff7a18;
+      color: white;
+      box-shadow: 0 10px 25px rgba(255, 122, 24, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: #e96500;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 2px solid #ff7a18;
+      color: #ff7a18;
+      background: white;
+    }
+
+    .btn-secondary:hover {
+      background: #ff7a18;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, #ff7a18, #ffb347);
+      padding: 34px;
+      border-radius: 32px;
+      color: white;
+      box-shadow: 0 25px 50px rgba(255, 122, 24, 0.28);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+      top: -50px;
+      right: -50px;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      bottom: -30px;
+      left: 30px;
+    }
+
+    .hero-card h2 {
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card li {
+      margin: 12px 0;
+      font-weight: 600;
+    }
+
+    .hero-card li::before {
+      content: "●";
+      margin-right: 10px;
+      color: #fff3e6;
+    }
+
+    /* Sections */
+    section {
+      max-width: 1150px;
+      margin: auto;
+      padding: 70px 24px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title span {
+      display: inline-block;
+      color: #ff7a18;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+
+    .section-title h2 {
+      font-size: 2.3rem;
+      color: #242424;
+    }
+
+    .about-box,
+    .research-box,
+    .log-box,
+    .publication-box,
+    .contact-box {
+      background: white;
+      border-radius: 26px;
+      padding: 34px;
+      box-shadow: 0 12px 30px rgba(255, 122, 24, 0.09);
+      border: 1px solid #ffe1c2;
+    }
+
+    .about-box p,
+    .research-box p,
+    .log-box p,
+    .publication-box p,
+    .contact-box p {
+      color: #555;
+      margin-bottom: 14px;
+    }
+
+    /* Projects */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      background: white;
+      padding: 28px;
+      border-radius: 26px;
+      border: 1px solid #ffe1c2;
+      box-shadow: 0 12px 30px rgba(255, 122, 24, 0.09);
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 38px rgba(255, 122, 24, 0.16);
+    }
+
+    .project-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      background: #fff0df;
+      color: #ff7a18;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+    }
+
+    .project-card h3 {
+      margin-bottom: 12px;
+      color: #242424;
+    }
+
+    .project-card p {
+      color: #5b5b5b;
+      font-size: 0.95rem;
+    }
+
+    /* Timeline */
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 18px;
+      padding: 18px;
+      border-radius: 18px;
+      background: #fff8f0;
+      border: 1px solid #ffe1c2;
+    }
+
+    .timeline-date {
+      color: #ff7a18;
+      font-weight: 800;
+    }
+
+    .timeline-content h3 {
+      margin-bottom: 6px;
+      color: #242424;
+    }
+
+    .timeline-content p {
+      color: #555;
+    }
+
+    /* Contact */
+    .contact-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .contact-item {
+      background: #fff8f0;
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid #ffe1c2;
+      text-align: center;
+      font-weight: 700;
+      color: #ff7a18;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px;
+      background: #ff7a18;
+      color: white;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 60px;
+      }
+
+      .hero-text h1 {
+        font-size: 2.4rem;
+      }
+
+      .project-grid,
+      .contact-list {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .navbar {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Suong Vichet</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#logs">Experiment Logs</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-text">
+        <h1>Engineering Portfolio for <span>Research, Experiments, and Innovation</span></h1>
+        <p>
+          A personal engineering website to document experimental milestones, technical projects,
+          research progress, and future publications in mechanical engineering, energy harvesting,
+          dynamic sensing, and automation systems.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn-primary">View Projects</a>
+          <a href="#research" class="btn-secondary">Explore Research</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h2>Technical Focus</h2>
+        <ul>
+          <li>Flexible piezoelectric materials</li>
+          <li>Energy harvesting systems</li>
+          <li>Dynamic sensor development</li>
+          <li>Arduino and LabVIEW control</li>
+          <li>Python-based data analysis</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-title">
+        <span>About</span>
+        <h2>About Me</h2>
+      </div>
+      <div class="about-box">
+        <p>
+          I am a mechanical engineering master's student with interests in flexible piezoelectric
+          materials, energy harvesting, sensor systems, experimental mechanics, and engineering automation.
+        </p>
+        <p>
+          This website is designed as a professional portfolio and engineering logbook to record
+          project milestones, experimental setups, data analysis workflows, and research progress.
+        </p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-title">
+        <span>Portfolio</span>
+        <h2>Projects</h2>
+      </div>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="project-icon">⚡</div>
+          <h3>Piezoelectric Energy Harvester</h3>
+          <p>
+            Flexible rubber composite devices for harvesting energy from vibration, bending,
+            compression, and low-frequency mechanical motion.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">🔧</div>
+          <h3>Arduino Stepper Motor Control</h3>
+          <p>
+            Motor control system using pulse, direction, home position, jog buttons, and serial
+            command operation for mechanical testing applications.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">📊</div>
+          <h3>Python Data Analysis</h3>
+          <p>
+            Signal processing, plotting, peak detection, sensitivity analysis, and experiment
+            visualization using Python, pandas, and matplotlib.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">💡</div>
+          <h3>LabVIEW-Arduino Interface</h3>
+          <p>
+            Serial communication interface for controlling Arduino outputs and acquiring sensor
+            signals through LabVIEW-based experimental systems.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">🧪</div>
+          <h3>Material Characterization</h3>
+          <p>
+            Dielectric, piezoelectric, ferroelectric, and electromechanical testing of rubber-based
+            piezoelectric composites.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">🤖</div>
+          <h3>Smart Sensor Applications</h3>
+          <p>
+            Development of flexible array sensors for dynamic motion detection, spatial sensing,
+            and future self-powered sensing systems.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="section-title">
+        <span>Research</span>
+        <h2>Research Focus</h2>
+      </div>
+      <div class="research-box">
+        <p>
+          My research focuses on flexible piezoelectric rubber composite materials for energy harvesting,
+          dynamic sensing, and self-powered sensing applications.
+        </p>
+        <p>
+          The work includes material fabrication, dielectric characterization, piezoelectric coefficient
+          measurement, hysteresis analysis, dynamic mechanical excitation, circuit evaluation, and
+          integration with storage or sensing systems.
+        </p>
+      </div>
+    </section>
+
+    <section id="logs">
+      <div class="section-title">
+        <span>Milestones</span>
+        <h2>Experiment Logs</h2>
+      </div>
+      <div class="log-box">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">Milestone 01</div>
+            <div class="timeline-content">
+              <h3>Sample Fabrication</h3>
+              <p>Prepared flexible piezoelectric rubber composite samples using rubber matrix and ceramic filler.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">Milestone 02</div>
+            <div class="timeline-content">
+              <h3>Material Characterization</h3>
+              <p>Measured dielectric properties, piezoelectric coefficient, and polarization behavior.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">Milestone 03</div>
+            <div class="timeline-content">
+              <h3>Energy Harvesting Test</h3>
+              <p>Evaluated voltage output and charging behavior under controlled vibration and mechanical excitation.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">Milestone 04</div>
+            <div class="timeline-content">
+              <h3>Circuit Optimization</h3>
+              <p>Compared resistive load, full-bridge rectifier, and advanced harvesting circuit concepts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="section-title">
+        <span>Academic Output</span>
+        <h2>Publications</h2>
+      </div>
+      <div class="publication-box">
+        <p>
+          This section can be used to list future conference papers, journal articles, thesis documents,
+          posters, presentation slides, datasets, and technical reports.
+        </p>
+        <p>
+          Example: Energy Harvesting Using Flexible Piezoelectric Rubber Composites: Design and Performance Evaluation.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <span>Connect</span>
+        <h2>Contact</h2>
+      </div>
+      <div class="contact-box">
+        <p>
+          For research collaboration, engineering projects, or academic communication, please contact me through the channels below.
+        </p>
+        <div class="contact-list">
+          <div class="contact-item">Email</div>
+          <div class="contact-item">GitHub</div>
+          <div class="contact-item">LinkedIn</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Suong Vichet. Engineering Portfolio and Research Log.</p>
+  </footer>
+</body>
+</html>
